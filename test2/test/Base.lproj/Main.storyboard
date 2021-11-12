@@ -10,7 +10,7 @@
         <!--Detail-->
         <scene sceneID="T9m-Zd-neN">
             <objects>
-                <viewController id="5tY-dB-jEQ" sceneMemberID="viewController">
+                <viewController id="5tY-dB-jEQ" customClass="ResultViewController" customModule="test" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="g6x-9p-3Vu">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -21,7 +21,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="adb-5q-y7j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-943" y="385"/>
+            <point key="canvasLocation" x="871" y="88"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -92,7 +92,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nJr-9i-iKG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1009" y="-257"/>
+            <point key="canvasLocation" x="-768" y="88"/>
         </scene>
     </scenes>
 </document>

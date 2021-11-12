@@ -32,15 +32,19 @@ class ViewController: UIViewController {
         } else {
             buttonGuess.isEnabled = false
         }
+        
+        buttonGuess.isEnabled = model.isValid(guess: Int(textField.text!))
     }
     
     @IBAction func onclick(_ sender: UIButton) {
-        // Check for input not nill
-        //if(checkNumber()){
-            
-        //}
         
         model.counterOfTrys+=1
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue,
+        sender: Any?){
+        let resultViewController = segue.destination as? ResultViewController
+        resultViewController?.model = model
     }
     
     func compare(guessedString: String) -> Int! {
