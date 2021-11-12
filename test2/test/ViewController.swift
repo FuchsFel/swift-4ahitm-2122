@@ -16,8 +16,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var buttonGuess: UIButton!
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         model.numberToGuess = Int(arc4random_uniform(100));
@@ -67,7 +65,7 @@ class ViewController: UIViewController {
             
             let text: String?
             
-            switch guessedNumber{
+            switch guessedNumber {
             case -1:
                 text = "Your number is to low"
                 label.text = text
@@ -81,8 +79,6 @@ class ViewController: UIViewController {
                 label.text = text
                 return true
             }
-            
-            
         }
         return false
     }

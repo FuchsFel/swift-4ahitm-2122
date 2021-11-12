@@ -24,5 +24,5 @@ class Model{
         }
         return false
     }
-    }
+}
 

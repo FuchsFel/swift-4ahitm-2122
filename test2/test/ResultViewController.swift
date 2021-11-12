@@ -9,12 +9,13 @@ import UIKit
 
 class ResultViewController: UIViewController {
 
+    @IBOutlet weak var resultMessage: UILabel!
     var model : Model!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        resultMessage.text = "You needed \(model.counterOfTrys) tries"
     }
     
 
