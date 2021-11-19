@@ -9,12 +9,13 @@ import UIKit
 
 class ViewController: UIViewController {
     var model = Model()
-    var guessedNumber = 0
 
     
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var buttonGuess: UIButton!
+    @IBOutlet weak var alreadyGuessedNumbers: UIButton!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,30 +27,31 @@ class ViewController: UIViewController {
     
     @IBAction func onChangeTextField(_ sender: UITextField) {
         if(model.isValid(guess: Int(textField.text!))){
-        buttonGuess.isEnabled = true;
+            buttonGuess.isEnabled = true
+            alreadyGuessedNumbers.isEnabled = true
         } else {
             buttonGuess.isEnabled = false
+            alreadyGuessedNumbers.isEnabled = false
         }
         
         buttonGuess.isEnabled = model.isValid(guess: Int(textField.text!))
     }
     
     @IBAction func onclick(_ sender: UIButton) {
-        
-        model.counterOfTrys+=1
+        let guess = Int(textField.text!)!
+        model.addGuessedNumber(guess: guess)
     }
     
-    override func prepare(for segue: UIStoryboardSegue,
-        sender: Any?){
-        let resultViewController = segue.destination as? ResultViewController
-        resultViewController?.model = model
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        let tableViewController = segue.destination as? ResultTableViewController
+        tableViewController?.model = model
     }
     
     func compare(guessedString: String) -> Int! {
         let guess = Int(guessedString)!
         return model.compare(guess: guess)
     }
-    
+
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         if(checkNumber()){
             return true
@@ -59,13 +61,11 @@ class ViewController: UIViewController {
     }
     
     func checkNumber() -> Bool{
-        if(Optional(guessedNumber) != nil){
-            print("")
-            guessedNumber = compare(guessedString: textField.text!)
+        var compareResult = compare(guessedString: textField.text!)
             
             let text: String?
             
-            switch guessedNumber {
+            switch compareResult {
             case -1:
                 text = "Your number is to low"
                 label.text = text
@@ -79,10 +79,7 @@ class ViewController: UIViewController {
                 label.text = text
                 return true
             }
-        }
         return false
+        }
     }
-
-
-}
 
